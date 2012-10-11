@@ -1,8 +1,6 @@
 package processadorGeral;
 
 public class ProcessadorDeExpressoesNumericas {
-
-	
 	
 	public static String calculaExpressaoNumerica(String expressaoNumerica){
 		
@@ -14,11 +12,14 @@ public class ProcessadorDeExpressoesNumericas {
 	    
 	    case("+") : resultado = calculaSoma(Integer.valueOf(expressaoNumericaSeparada[0]),Integer.valueOf(expressaoNumericaSeparada[2]));	    
 	    break;
-	    case("-") : resultado = calculaSubtracao(Integer.valueOf(expressaoNumericaSeparada[0]),Integer.valueOf(expressaoNumericaSeparada[2]));	    
-	    break;	    
-	    case("*") : resultado = calculaMultiplicacao(Integer.valueOf(expressaoNumericaSeparada[0]),Integer.valueOf(expressaoNumericaSeparada[2]));	    
-	    break;	    
-	    case("/") : resultado = calculaDivisao(Integer.valueOf(expressaoNumericaSeparada[0]),Integer.valueOf(expressaoNumericaSeparada[2]));	    
+	    
+	    case("*") : resultado = calculaMultiplicacao(Integer.valueOf(expressaoNumericaSeparada[0]),Integer.valueOf(expressaoNumericaSeparada[2]));
+	    break;
+	    
+	    case("/") : resultado = calculaDivisao(Integer.valueOf(expressaoNumericaSeparada[0]),Integer.valueOf(expressaoNumericaSeparada[2])); 
+	    break;
+	    
+	    case("-") : resultado = calculaSubtracao(Integer.valueOf(expressaoNumericaSeparada[0]),Integer.valueOf(expressaoNumericaSeparada[2]));
 	    break;
 	    
 	    default: 
@@ -31,33 +32,29 @@ public class ProcessadorDeExpressoesNumericas {
 	}
 	
 	
-	private static String calculaDivisao(int primeiroNumero, int segundoNumero) {	
-		
-		if(segundoNumero == 0){
-			return "Impossivel de fazer essa divisao";
-		}
-		
-		return ""+(primeiroNumero/segundoNumero);
-	}
-
-
-	private static String calculaMultiplicacao(int primeiroNumero, int segundoNumero) {
-		
-		return ""+(primeiroNumero*segundoNumero);
-	}
-
-
-	private static String calculaSubtracao(int primeiroNumero, int segundoNumero) {
-		
-		return ""+(primeiroNumero-segundoNumero);
-	}
-
-
 	private static String calculaSoma(int primeiroNumero, int segundoNumero) {
 
 		return ""+(primeiroNumero+segundoNumero);
 	}
 
+	private static String calculaMultiplicacao(int primeiroNumero, int segundoNumero){
+		
+		return ""+(primeiroNumero*segundoNumero);
+	}
+	
+	private static String calculaSubtracao(int primeiroNumero, int segundoNumero){
+		
+		return ""+(primeiroNumero-segundoNumero);		
+	}
+	
+	private static String calculaDivisao(int primeiroNumero, int segundoNumero){
+
+		if(segundoNumero != 0){
+			return ""+(primeiroNumero/segundoNumero);
+		}else{
+			return "Nao pode dividir por zero";
+		}
+	}
 
 	public static String[] separaAsPartesDaExpressao(String expressaoNumerica){
 		

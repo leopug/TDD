@@ -19,4 +19,35 @@ public class TesteParaValidarExpressaoNumerica {
 				
 	}
 
+	
+	@Test
+	public void testaMultiplicacao(){
+		Processador proc = new Processador();
+		
+		String expressaoDeMultiplicacao = "30 * 30";
+		
+		assertEquals("900", proc.processa(expressaoDeMultiplicacao));
+		
+	}
+	
+	@Test
+	public void testaSubtracao(){
+		Processador proc = new Processador();
+		
+		String expressaoDeMultiplicacao = "30 - 30";
+		
+		assertEquals("0", proc.processa(expressaoDeMultiplicacao));
+		
+	}
+	
+	@Test
+	public void testaDivisao(){
+		Processador proc = new Processador();
+		
+		String expressaoDeMultiplicacao = "30 / 30";
+		
+		assertEquals("1", proc.processa(expressaoDeMultiplicacao));
+		
+	}
+	
 }
